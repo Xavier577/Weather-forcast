@@ -1,24 +1,24 @@
-import { useState, useEffect } from "react";
-import "./App.css";
+import React, { useState, useEffect, Fragment } from "react";
+import SearchBar from "./components/search-bar/SearchBar";
 import "./request.json";
+import "./App.css";
 
 function App() {
   const [weatherInfo, setWeatherInfo] = useState("");
-  useEffect(async () => {
+  useEffect(() => {
     const data = require("./request.json");
     console.log(data);
     setWeatherInfo(data);
   }, []);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={weatherInfo?.current?.weather_icons} />
-        <p>{weatherInfo?.current?.temperature}&#8451;</p>
-        <p>{weatherInfo?.current?.pressure}mmhg</p>
-        <p>{weatherInfo?.current?.weather_descriptions} </p>
-        <p>{weatherInfo?.location?.country}</p>
-      </header>
-    </div>
+    <Fragment>
+      <div className="App">
+        <SearchBar />
+        <div className="panels">
+          <img src={weatherInfo?.current?.weather_icons} alt="" />
+        </div>
+      </div>
+    </Fragment>
   );
 }
 

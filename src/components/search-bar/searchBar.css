@@ -1,0 +1,31 @@
+.search-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+  gap: 10px;
+  max-width: 400px;
+  height: 60px;
+  width: 90vw;
+  border: 2px solid #4070f4;
+  margin-bottom: 50px;
+}
+#search-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  background-color: #524f4f52;
+}
+#search-icon img {
+  width: 20px;
+  height: 20px;
+}
+.search-bar input[type="text"] {
+  margin-bottom: 10px;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid #615c5c7c;
+  width: 80%;
+  background: transparent;
+}
