@@ -1,8 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import styles from "../../styles/Home.module.css";
-
-export default function Home() {
+import styles from "../styles/Home.module.css";
+import SearchBar from "../components/SearchBar";
+import { WeatherApi } from "./api/WeatherApi";
+export default function Home({ api }: { api: any }) {
     return (
         <div className={styles.container}>
             <Head>
@@ -14,7 +15,8 @@ export default function Home() {
                 <link rel="icon" href="/logo_jt.svg" />
             </Head>
             <div>
-                <p></p>
+                <SearchBar />
+                <WeatherApi />
             </div>
         </div>
     );
