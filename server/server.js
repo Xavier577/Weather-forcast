@@ -4,13 +4,14 @@ const WEATHERSTACK_API = process.env.WEATHERSTACK_API;
 const OPENWEATHER_API = process.env.OPENWEATHER_API;
 const express = require("express");
 const axios = require("axios");
-const cors = require("cors");
+const { response } = require("express");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
+const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=london&appid=${OPENWEATHER_API}`; //`http://api.weatherstack.com/current?access_key=${WEATHERSTACK_API}&query=New%York`
 
-app.use(cors());
-app.use(express.json());
+const app = express();
+const PORT = process.env.PORT || 8080;
 
 app.post("/forcast", (req, res) => {
   // this is to get data by geographic coordinates
