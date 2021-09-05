@@ -1,0 +1,56 @@
+{
+  "name": "weather-forcast",
+  "version": "1.0.0",
+  "description": "Weather forcast app",
+  "main": "server.ts",
+  "scripts": {
+    "start": "node build/server.js",
+    "client": "webpack --watch",
+    "client:serve": "webpack serve",
+    "server": "nodemon --exec ts-node src/server.ts",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Xavier577/Weather-forcast.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Xavier577/Weather-forcast/issues"
+  },
+  "homepage": "https://github.com/Xavier577/Weather-forcast#readme",
+  "dependencies": {
+    "axios": "^0.21.3",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-router-dom": "^5.3.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.15.5",
+    "@babel/plugin-transform-runtime": "^7.15.0",
+    "@babel/preset-env": "^7.15.4",
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.15.0",
+    "@types/express": "^4.17.13",
+    "@types/node": "^16.7.10",
+    "@types/react": "^17.0.20",
+    "@types/react-dom": "^17.0.9",
+    "@types/react-router-dom": "^5.1.8",
+    "babel-loader": "^8.2.2",
+    "concurrently": "^6.2.1",
+    "css-loader": "^6.2.0",
+    "dotenv": "^10.0.0",
+    "nodemon": "^2.0.12",
+    "style-loader": "^3.2.1",
+    "ts-loader": "^9.2.5",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.2",
+    "webpack": "^5.52.0",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.1.0"
+  }
+}

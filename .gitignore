@@ -3,3 +3,9 @@ node_modules
 
 #.env
 .env
+
+#test
+test.http
+
+#build
+build
