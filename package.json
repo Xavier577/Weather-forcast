@@ -7,7 +7,7 @@
     "start": "node build/server.js",
     "client": "webpack --watch",
     "client:serve": "webpack serve",
-    "server": "nodemon --exec ts-node src/server.ts",
+    "server": "nodemon --exec ts-node src/server.ts --mode development",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
