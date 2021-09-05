@@ -9,3 +9,6 @@ test.http
 
 #build
 build
+
+#javascript bundle
+./client/public/bundle
