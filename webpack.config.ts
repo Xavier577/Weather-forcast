@@ -1,6 +1,6 @@
-const path = require("path");
+import path from "path";
 
-module.exports = {
+const webpackConfig = () => ({
   mode: "production",
   entry: path.resolve(__dirname, "client", "src", "index.tsx"),
   module: {
@@ -15,8 +15,8 @@ module.exports = {
         ],
       },
       {
-        test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        test: /\.(scss|sass|css)$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
       },
       {
         test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
@@ -35,4 +35,6 @@ module.exports = {
     filename: "script.js",
     path: path.resolve(__dirname, "client", "public", "static", "bundle"),
   },
-};
+});
+
+export default webpackConfig;

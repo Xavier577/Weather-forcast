@@ -12,14 +12,16 @@ import path from "path";
 app.use(expressJsonParser());
 app.use(serveStatic(path.resolve(__dirname, "..", "client", "public")));
 
-app.post("/submit", (req, res) => {
-  console.log(req.body);
-  const SearchQuery = req.body.location;
+app.post("/submit", (request, response) => {
+  console.log(request.body);
+  const SearchQuery = request.body.location;
   const queryUrl = `https://api.openweathermap.org/data/2.5/weather?q=${SearchQuery}&appid=${OPENWEATHER_API_ID}`;
   const geoQueryUrl = `http://api.openweathermap.org/geo/1.0/direct?q=${SearchQuery}&limit=5&appid=${OPENWEATHER_API_ID}`;
   axios
     .get(geoQueryUrl)
-    .then((res) => console.log(res.data))
+    .then((res) => {
+      response.json(res.data);
+    })
     .catch((err) => console.log(err));
 });
 

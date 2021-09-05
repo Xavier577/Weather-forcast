@@ -1,6 +1,6 @@
-import axios from "axios";
 import useForm from "./hooks/useForm";
 import { sendToServer } from "./utils";
+import "./scss/style.scss";
 
 const App = () => {
   const { formFields, handleChange } = useForm({ location: "" });
