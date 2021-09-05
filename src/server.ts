@@ -4,7 +4,7 @@ import {
   PORT,
   serveStatic,
   OPENWEATHER_API_ID,
-} from "./config/app.config";
+} from "./config/app";
 
 import axios from "axios";
 import path from "path";

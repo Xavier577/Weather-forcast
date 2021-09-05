@@ -1,5 +1,5 @@
 import express from "express";
-import { load_env } from "./secrets.config";
+import { load_env } from "./secrets.";
 
 load_env();
 
