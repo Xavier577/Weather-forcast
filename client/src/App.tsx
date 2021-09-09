@@ -1,29 +1,54 @@
 import useForm from "./hooks/useForm";
 import { sendToServer } from "./utils";
 import "./scss/style.scss";
+import SearchBar from "./components/searchBar/searchBar";
+import useGeolocator from "./hooks/useGeolocator";
+import { useEffect } from "react";
+import axios from "axios";
+import useFetchSearchQuery from "./hooks/useFetchSearchQuery";
 
 const App = () => {
   const { formFields, handleChange } = useForm({ location: "" });
+  const { position, geoLocatorError } = useGeolocator();
+  const { searchQueryData, fetchError } = useFetchSearchQuery(
+    formFields.location,
+    [formFields.location]
+  );
+
+  console.log(searchQueryData);
+
+  useEffect(() => {
+    if (geoLocatorError?.PERMISSION_DENIED) {
+      //console.log("permission denied");
+    } else if (geoLocatorError?.message) {
+      // console.log(geoLocatorError.message);
+    } else {
+      //  console.log(position?.coords);
+      fetch("/usercoords", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify({
+          latitude: position?.coords.latitude,
+          longitude: position?.coords.longitude
+        })
+      }).then((res) => console.log(res));
+    }
+  }, [position]);
+
   return (
     <div>
-      <h1>Weather forcast</h1>
-      <form
-        method="POST"
-        action="submit"
-        onSubmit={(event) => {
+      <h1>Weather forcast</h1>{" "}
+      <SearchBar
+        name="location"
+        value={formFields.location}
+        handleChange={handleChange}
+        submissionAction={(event) => {
           event.preventDefault();
-          sendToServer("/submit", formFields);
         }}
-      >
-        <input
-          type="text"
-          value={formFields.location}
-          onChange={handleChange}
-          name="location"
-          id="location"
-        />
-        <button type="submit">submit</button>
-      </form>
+      />
     </div>
   );
 };

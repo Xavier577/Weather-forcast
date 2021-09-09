@@ -1,11 +1,12 @@
 import express from "express";
-import { load_env } from "./secrets.";
+import loadEnv from "./secrets.";
 
-load_env();
+loadEnv();
 
 export const app = express();
-export const serveStatic = express.static;
 export const bodyParser = express.urlencoded;
 export const expressJsonParser = express.json;
+export const fileRouter = express.Router;
+export const { OPENWEATHER_API_ID } = process.env;
 export const PORT = process.env.PORT || 3000;
-export const OPENWEATHER_API_ID = process.env.OPENWEATHER_API_ID;
+export const serveStatic = express.static;

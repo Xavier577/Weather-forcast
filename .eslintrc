@@ -1,0 +1,46 @@
+{
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier", "react", "react-hooks"],
+  "extends": [
+    "airbnb",
+    "airbnb-typescript/base",
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "rules": {
+    "@typescript-eslint/lines-between-class-members": [
+      "warn",
+      "always",
+      { "exceptAfterOverload": false }
+    ],
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "class-methods-use-this": "off",
+    "func-names": "off",
+    "import/prefer-default-export": "warn",
+    "import/no-extraneous-dependencies": [
+      "warn",
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ],
+
+    "lines-between-class-members": "off",
+    "no-console": "warn",
+    "no-duplicate-imports": "error",
+    "no-unused-vars": "warn",
+    "no-plusplus": "warn",
+    "no-param-reassign": "off",
+    "prefer-const": "warn",
+    "object-shorthand": "off",
+    "spaced-comment": "warn"
+  }
+}

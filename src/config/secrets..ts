@@ -1,9 +1,12 @@
-//@ts-ignore
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-ignore
+
 import dotenv from "dotenv";
 
-export const load_env = () => {
+const loadEnv = () => {
   if (process.env.NODE_ENV !== "production") {
     dotenv.config();
-    return;
   }
 };
+
+export default loadEnv;
