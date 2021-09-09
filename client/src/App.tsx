@@ -6,6 +6,7 @@ import useGeolocator from "./hooks/useGeolocator";
 import { useEffect } from "react";
 import axios from "axios";
 import useFetchSearchQuery from "./hooks/useFetchSearchQuery";
+import Suggestions from "./components/searchSuggestions/suggestions";
 
 const App = () => {
   const { formFields, handleChange } = useForm({ location: "" });
@@ -14,8 +15,6 @@ const App = () => {
     formFields.location,
     [formFields.location]
   );
-
-  console.log(searchQueryData, position);
 
   useEffect(() => {
     if (geoLocatorError?.PERMISSION_DENIED) {
@@ -36,12 +35,13 @@ const App = () => {
         })
       }).then((res) => console.log(res));
     }
-  }, [position]);
+  }, []);
 
   return (
     <div>
       <h1>Weather forcast</h1>{" "}
       <SearchBar
+        list="search-box-suggestions"
         name="location"
         value={formFields.location}
         handleChange={handleChange}
@@ -49,6 +49,7 @@ const App = () => {
           event.preventDefault();
         }}
       />
+      <Suggestions id="search-box-suggestions" resultData={searchQueryData} />
     </div>
   );
 };

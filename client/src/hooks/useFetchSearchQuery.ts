@@ -1,6 +1,5 @@
-import axios, { AxiosResponse } from "axios";
-import { useEffect, useState } from "react";
-import { ApiData } from "../types/interface";
+import { useState } from "react";
+import { ApiData } from "../types/types";
 import useDebounce from "./useDebounce";
 
 const useFetchSearchQuery = (
@@ -30,23 +29,6 @@ const useFetchSearchQuery = (
     1000,
     [...dependency]
   );
-  /*  useEffect(() => {
-    if (searchQuery) {
-      fetch("/locationSearchQuery", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
-        },
-        body: JSON.stringify({
-          searchQuery
-        })
-      })
-        .then((endpointResponse) => endpointResponse.json())
-        .then((endpointData: ApiData) => setSearchQueryData(endpointData))
-        .catch((error) => setFetchError(error));
-    }
-  }, [...dependency]); */
 
   return { searchQueryData, fetchError };
 };
