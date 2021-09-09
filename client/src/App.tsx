@@ -15,7 +15,7 @@ const App = () => {
     [formFields.location]
   );
 
-  console.log(searchQueryData);
+  console.log(searchQueryData, position);
 
   useEffect(() => {
     if (geoLocatorError?.PERMISSION_DENIED) {

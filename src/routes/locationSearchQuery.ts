@@ -13,7 +13,7 @@ locationSearchQueryRouter.post("/", (request, response) => {
       .get(geoQueryUrl)
       .then((apiResponse) => {
         console.log(apiResponse.data);
-        response.send(apiResponse);
+        response.send(apiResponse.data);
       })
       .catch((error) => console.log(error));
   } else {
