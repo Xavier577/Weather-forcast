@@ -4,7 +4,7 @@
   "description": "Weather forcast app",
   "main": "index.ts",
   "scripts": {
-    "start": "tsc && node server/build/index.js",
+    "start": "node server/build/index.js",
     "client": "npm start --prefix client",
     "server": "nodemon --exec ts-node ./server/index.ts --mode development",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
