@@ -8,10 +8,7 @@
     "server": "nodemon --exec ts-node index.ts --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Xavier577/Weather-forcast.git"
-  },
+  "repository": "git+https://github.com/Xavier577/Weather-forcast.git",
   "keywords": [],
   "author": "",
   "license": "ISC",
