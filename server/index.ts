@@ -8,4 +8,8 @@ app.use(expressJsonParser());
 app.use("/locationSearchQuery", locationSearchQueryRouter);
 app.use("/forcast", forcastRouter);
 
+app.get("/", (request, response) => {
+  response.send("server is running....");
+});
+
 app.listen(PORT, () => console.log(`server is running on port ${PORT}`));
