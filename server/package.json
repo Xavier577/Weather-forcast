@@ -4,10 +4,8 @@
   "description": "Weather forcast app",
   "main": "index.ts",
   "scripts": {
-    "start": "node ./server/build/index.js",
-    "client": "npm start --prefix client",
+    "start": "node ./build/index.js",
     "server": "nodemon --exec ts-node ./server/index.ts --mode development",
-    "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
