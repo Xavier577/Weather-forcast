@@ -1,22 +1,19 @@
+import { FormEvent, useState } from "react";
 import useForm from "./hooks/useForm";
 import SearchBar from "./components/searchBar/searchBar";
-import useGeolocator from "./hooks/useGeolocator";
-import { FormEvent, useEffect, useState } from "react";
 import useFetchSearchQuery from "./hooks/useFetchSearchQuery";
 import Suggestions from "./components/searchSuggestions/suggestions";
-import { SearchApiData } from "./types/types";
 import Bar from "./components/bar/bar";
 import ThemeToggle from "./components/themeToggle/themeToggle";
 import useTheme from "./hooks/useTheme";
-import "./scss/style.scss";
-import WeatherCard from "./components/weatherCard/WeatherCard";
+import WeatherCard from "./components/weatherCard/weatherCard";
 import { JSONData } from "./types/interface";
+import "./scss/style.scss";
 
 const App = () => {
   const { theme, themeToggleFn } = useTheme();
   const { formFields, handleChange } = useForm({ location: "" });
   const [weatherData, setWeatherData] = useState<JSONData>();
-  // const { position, geoLocatorError } = useGeolocator();
   const { searchQueryData, fetchError } = useFetchSearchQuery(
     formFields.location,
     [formFields.location]
@@ -24,44 +21,24 @@ const App = () => {
 
   const searchBarSubmitFn = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    fetch("/forcast", {
-      method: "POST",
-      headers: {
-        "content-type": "application/json"
-      },
-      body: JSON.stringify({
-        latitude: searchQueryData?.[0].lat,
-        longitude: searchQueryData?.[0].lon
-      })
-    })
-      .then((res) => res.json())
-      .then((data: JSONData) => setWeatherData(data))
-      .catch((err) => console.log(err));
-  };
-
-  /*  useEffect(() => {
-    if (geoLocatorError?.PERMISSION_DENIED) {
-      //console.log("permission denied");
-    } else if (geoLocatorError?.message) {
-      // console.log(geoLocatorError.message);
+    if (fetchError) {
+      alert("There was an error fetching data");
     } else {
-      //  console.log(position?.coords);
       fetch("/forcast", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json"
+          "content-type": "application/json",
         },
         body: JSON.stringify({
-          latitude: position?.coords.latitude,
-          longitude: position?.coords.longitude
-        })
+          latitude: searchQueryData?.[0].lat,
+          longitude: searchQueryData?.[0].lon,
+        }),
       })
         .then((res) => res.json())
-        .then((data) => setWeatherData(data))
-        .catch((error) => error);
+        .then((data: JSONData) => setWeatherData(data))
+        .catch((err) => console.log(err));
     }
-  }, [position]); */
+  };
 
   return (
     <div className="app">

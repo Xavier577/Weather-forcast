@@ -8,13 +8,11 @@ const Suggestions: FC<{
 }> = ({ id, className, resultData }) => {
   return (
     <datalist id={id} className={className}>
-      {resultData
-        ? resultData.map((data, idx) => (
-            <option key={idx}>
-              {data.name}, {data.country}
-            </option>
-          ))
-        : null}
+      {resultData?.map((data, idx) => (
+        <option key={idx}>
+          {data.name}, {data.country}
+        </option>
+      ))}
     </datalist>
   );
 };

@@ -1,12 +1,10 @@
 import cors from "cors";
-import path from "path";
-import { app, expressJsonParser, PORT, serveStatic } from "./config/app";
+import { app, expressJsonParser, PORT } from "./config/app";
 import forcastRouter from "./routes/forcast";
 import locationSearchQueryRouter from "./routes/locationSearchQuery";
 
 app.use(cors());
 app.use(expressJsonParser());
-app.use(serveStatic(path.resolve(__dirname, "..", "client", "public")));
 app.use("/locationSearchQuery", locationSearchQueryRouter);
 app.use("/forcast", forcastRouter);
 

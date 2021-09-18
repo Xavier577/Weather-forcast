@@ -2,12 +2,11 @@
   "name": "weather-forcast",
   "version": "1.0.0",
   "description": "Weather forcast app",
-  "main": "server.ts",
+  "main": "index.ts",
   "scripts": {
-    "start": "node build/server.js",
-    "client": "webpack --watch",
-    "client:serve": "webpack serve",
-    "server": "nodemon --exec ts-node src/server.ts --mode development",
+    "start": "node server/build/index.js",
+    "client": "npm start --prefix client",
+    "server": "nodemon --exec ts-node ./server/index.ts --mode development",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -31,11 +30,6 @@
     "react-router-dom": "^5.3.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.15.5",
-    "@babel/plugin-transform-runtime": "^7.15.0",
-    "@babel/preset-env": "^7.15.4",
-    "@babel/preset-react": "^7.14.5",
-    "@babel/preset-typescript": "^7.15.0",
     "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^16.7.10",
@@ -48,28 +42,10 @@
     "concurrently": "^6.2.1",
     "css-loader": "^6.2.0",
     "dotenv": "^10.0.0",
-    "eslint": "^7.2.0",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-airbnb-typescript": "^14.0.0",
-    "eslint-config-node": "^4.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-jsx-a11y": "^6.4.1",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.21.5",
-    "eslint-plugin-react-hooks": "^1.7.0",
     "node-sass": "^6.0.1",
     "nodemon": "^2.0.12",
-    "prettier": "^2.3.2",
-    "sass": "^1.39.0",
-    "sass-loader": "^12.1.0",
-    "style-loader": "^3.2.1",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
-    "typescript": "^4.4.2",
-    "webpack": "^5.52.0",
-    "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.1.0"
+    "typescript": "^4.4.2"
   }
 }
