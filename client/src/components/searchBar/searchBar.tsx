@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { SearchBoxProps } from "../../types/interface";
-import Suggestions from "../searchSuggestions/suggestions";
 
 const SearchBar: FC<SearchBoxProps> = ({
   name,

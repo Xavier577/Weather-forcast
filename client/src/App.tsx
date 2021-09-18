@@ -4,16 +4,18 @@ import useGeolocator from "./hooks/useGeolocator";
 import { FormEvent, useEffect, useState } from "react";
 import useFetchSearchQuery from "./hooks/useFetchSearchQuery";
 import Suggestions from "./components/searchSuggestions/suggestions";
-import { ApiData } from "./types/types";
+import { SearchApiData } from "./types/types";
 import Bar from "./components/bar/bar";
 import ThemeToggle from "./components/themeToggle/themeToggle";
 import useTheme from "./hooks/useTheme";
 import "./scss/style.scss";
+import WeatherCard from "./components/weatherCard/WeatherCard";
+import { JSONData } from "./types/interface";
 
 const App = () => {
   const { theme, themeToggleFn } = useTheme();
   const { formFields, handleChange } = useForm({ location: "" });
-  const [weatherData, setWeatherData] = useState<ApiData>();
+  const [weatherData, setWeatherData] = useState<JSONData>();
   // const { position, geoLocatorError } = useGeolocator();
   const { searchQueryData, fetchError } = useFetchSearchQuery(
     formFields.location,
@@ -33,7 +35,7 @@ const App = () => {
       })
     })
       .then((res) => res.json())
-      .then((data: ApiData) => setWeatherData(data))
+      .then((data: JSONData) => setWeatherData(data))
       .catch((err) => console.log(err));
   };
 
@@ -83,7 +85,7 @@ const App = () => {
         <Suggestions id="search-box-suggestions" resultData={searchQueryData} />
         <ThemeToggle theme={theme} toggleFunction={themeToggleFn} />
       </Bar>
-      <pre>{JSON.stringify(weatherData, null, 4)}</pre>
+      <WeatherCard weatherData={weatherData} />
     </div>
   );
 };

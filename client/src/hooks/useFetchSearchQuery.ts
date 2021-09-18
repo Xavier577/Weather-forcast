@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { ApiData } from "../types/types";
+import { SearchApiData } from "../types/types";
 import useDebounce from "./useDebounce";
 
 const useFetchSearchQuery = (
   searchQuery: string | number | readonly string[],
   dependency: any[]
 ) => {
-  const [searchQueryData, setSearchQueryData] = useState<ApiData>();
+  const [searchQueryData, setSearchQueryData] = useState<SearchApiData>();
   const [fetchError, setFetchError] = useState();
   useDebounce(
     () => {
@@ -22,7 +22,9 @@ const useFetchSearchQuery = (
           })
         })
           .then((endpointResponse) => endpointResponse.json())
-          .then((endpointData: ApiData) => setSearchQueryData(endpointData))
+          .then((endpointData: SearchApiData) =>
+            setSearchQueryData(endpointData)
+          )
           .catch((error) => setFetchError(error));
       }
     },

@@ -1,10 +1,11 @@
 @use 'config';
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Play&family=Roboto:ital,wght@1,300&display=swap");
 
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 html {
@@ -20,14 +21,18 @@ html[data-theme="dark"] {
 }
 
 body {
+  font-family: "Roboto", sans-serif;
   background-image: url("../assets/img/cloudy_skys.jpg");
   background-size: cover;
+  background-attachment: fixed;
 }
 
+h1 {
+  font-family: "Play", sans-serif;
+}
 .app {
   background-color: #475277a1;
-  position: absolute;
-  height: 100%;
+  min-height: 100vh;
   width: 100%;
 
   .app-title-bar {
@@ -52,5 +57,37 @@ body {
     justify-content: center;
     align-items: center;
     background-color: var(--primary-color);
+  }
+
+  .weather-card-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .weather-card {
+    color: #f1f1f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    transform: translateY(-10%);
+    background-color: var(--primary-color);
+    @include config.setMultiSize(80%, 60%, 40%, 60%);
+  }
+
+  .forcasts {
+    width: 80%;
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .individual-forcast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 }

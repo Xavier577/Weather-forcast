@@ -6,4 +6,4 @@ export type DataCollectionElement =
   | HTMLButtonElement
   | HTMLTextAreaElement;
 
-export type ApiData = Array<JSONData>;
+export type SearchApiData = Array<JSONData>;

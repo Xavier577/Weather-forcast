@@ -1,10 +1,10 @@
 import { FC } from "react";
-import { ApiData } from "../../types/types";
+import { SearchApiData } from "../../types/types";
 
 const Suggestions: FC<{
   id?: string;
   className?: string;
-  resultData?: ApiData;
+  resultData?: SearchApiData;
 }> = ({ id, className, resultData }) => {
   return (
     <datalist id={id} className={className}>

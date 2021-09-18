@@ -5,3 +5,17 @@ $primary-text-color: #1d6a83;
   width: 100%;
   height: 5%;
 }
+
+@mixin setMultiSize(
+  $mobile-width,
+  $mobile-height,
+  $desktop-width,
+  $desktop-height
+) {
+  width: $mobile-width;
+  height: $desktop-height;
+  @media screen and (min-width: 1023px) {
+    width: $desktop-width;
+    height: $desktop-height;
+  }
+}
