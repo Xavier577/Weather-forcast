@@ -2,3 +2,5 @@ node_modules
 client
 readMe.md
 test.http
+tsconfig.json
+server/src

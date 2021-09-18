@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node ./server/dist/index.js",
-    "dev": "nodemon --exec ts-node ./server/index.ts --mode development"
+    "start": "node ./server/dist/index.js",
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node ./server/src/index.ts --mode development"
   },
   "repository": "https://github.com/Xavier577/Weather-forcast.git",
   "author": "joseph <josephtsegen10@gmail.com>",
