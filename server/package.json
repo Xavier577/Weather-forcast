@@ -2,7 +2,7 @@
   "name": "weather-forcast",
   "version": "1.0.0",
   "description": "Weather forcast app",
-  "main": "index.ts",
+  "main": "index.js",
   "scripts": {
     "start": "node ./build/index.js",
     "server": "nodemon --exec ts-node index.ts --mode development",
