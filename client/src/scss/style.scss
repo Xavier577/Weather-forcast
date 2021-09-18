@@ -1,0 +1,56 @@
+@use 'config';
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;500&display=swap");
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  --primary-color: #264676;
+  --text-color: black;
+  --title-bar-backgrond: #ffffff;
+}
+
+html[data-theme="dark"] {
+  --text-color: white;
+  --primary-color: #273548;
+  --title-bar-backgrond: #111;
+}
+
+body {
+  background-image: url("../assets/img/cloudy_skys.jpg");
+  background-size: cover;
+}
+
+.app {
+  background-color: #475277a1;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .app-title-bar {
+    @include config.equal-bars;
+    background-color: var(--title-bar-backgrond);
+    align-items: center;
+    justify-content: center;
+
+    .app-title-text {
+      color: var(--text-color);
+      font-family: "Oswald", sans-serif;
+      font-size: 1.5rem;
+
+      .weather-text {
+        color: config.$primary-text-color;
+      }
+    }
+  }
+
+  .app-bar {
+    @include config.equal-bars;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+  }
+}

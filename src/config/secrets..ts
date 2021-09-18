@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-ignore
-
 import dotenv from "dotenv";
 
 const loadEnv = () => {

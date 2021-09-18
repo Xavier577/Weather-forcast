@@ -6,7 +6,6 @@ const Suggestions: FC<{
   className?: string;
   resultData?: ApiData;
 }> = ({ id, className, resultData }) => {
-  console.log(resultData);
   return (
     <datalist id={id} className={className}>
       {resultData

@@ -5,6 +5,7 @@ import Suggestions from "../searchSuggestions/suggestions";
 const SearchBar: FC<SearchBoxProps> = ({
   name,
   list,
+  className,
   value,
   placeholder,
   handleChange,
@@ -13,7 +14,7 @@ const SearchBar: FC<SearchBoxProps> = ({
   submissionAction
 }) => {
   return (
-    <div className="search-bar">
+    <div className={className}>
       <form action={formAction} method={formMethod} onSubmit={submissionAction}>
         <input
           list={list}

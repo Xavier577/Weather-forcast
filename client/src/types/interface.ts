@@ -9,6 +9,7 @@ export interface SearchBoxProps {
   value: string | number | readonly string[];
   name: string;
   placeholder?: string;
+  className?: string;
   list?: string;
   handleChange: (e: ChangeEvent<DataCollectionElement>) => void;
   submissionAction?: (e: FormEvent<HTMLFormElement>) => void;
