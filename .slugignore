@@ -1,5 +1,4 @@
 node_modules
 client
-server/src
 readMe.md
 test.http
