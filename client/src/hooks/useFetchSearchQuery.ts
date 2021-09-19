@@ -11,7 +11,7 @@ const useFetchSearchQuery = (
   useDebounce(
     () => {
       if (searchQuery) {
-        fetch("http://localhost:8080/locationSearchQuery", {
+        fetch("https://forcast-server.herokuapp.com/locationSearchQuery", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

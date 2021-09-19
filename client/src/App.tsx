@@ -26,7 +26,7 @@ const App = () => {
 
       console.log(fetchError);
     } else {
-      fetch("http://localhost:8080/forcast", {
+      fetch("https://forcast-server.herokuapp.com/forcast", {
         method: "POST",
         headers: {
           "content-type": "application/json",
