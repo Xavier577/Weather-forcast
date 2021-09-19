@@ -11,15 +11,15 @@ const useFetchSearchQuery = (
   useDebounce(
     () => {
       if (searchQuery) {
-        fetch("/locationSearchQuery", {
+        fetch("http://localhost:8080/locationSearchQuery", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            Accept: "application/json"
+            Accept: "application/json",
           },
           body: JSON.stringify({
-            searchQuery
-          })
+            searchQuery,
+          }),
         })
           .then((endpointResponse) => endpointResponse.json())
           .then((endpointData: SearchApiData) =>

@@ -18,13 +18,15 @@ const App = () => {
     formFields.location,
     [formFields.location]
   );
-
+  console.log(searchQueryData);
   const searchBarSubmitFn = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (fetchError) {
       alert("There was an error fetching data");
+
+      console.log(fetchError);
     } else {
-      fetch("/forcast", {
+      fetch("http://localhost:8080/forcast", {
         method: "POST",
         headers: {
           "content-type": "application/json",

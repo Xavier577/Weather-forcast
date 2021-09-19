@@ -7,13 +7,17 @@ const Suggestions: FC<{
   resultData?: SearchApiData;
 }> = ({ id, className, resultData }) => {
   return (
-    <datalist id={id} className={className}>
-      {resultData?.map((data, idx) => (
-        <option key={idx}>
-          {data.name}, {data.country}
-        </option>
-      ))}
-    </datalist>
+    <>
+      {resultData && resultData.length > 0 ? (
+        <datalist id={id} className={className}>
+          {resultData?.map((data, idx) => (
+            <option key={idx}>
+              {data.name}, {data.country}
+            </option>
+          ))}
+        </datalist>
+      ) : null}
+    </>
   );
 };
 
