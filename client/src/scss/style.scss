@@ -103,7 +103,8 @@ h1 {
     justify-content: space-around;
   }
 
-  .individual-forcast {
+  .individual-forcast,
+  .location-info {
     display: flex;
     flex-direction: column;
     align-items: center;
