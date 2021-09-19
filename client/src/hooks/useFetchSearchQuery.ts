@@ -28,7 +28,7 @@ const useFetchSearchQuery = (
           .catch((error) => setFetchError(error));
       }
     },
-    150,
+    10,
     [...dependency]
   );
 
