@@ -14,7 +14,9 @@ const WeatherCard: FC<{ weatherData?: JSONData }> = ({ weatherData }) => {
         <div className="location-info">
           <h1>Overcast</h1>
           {weatherData
-            ? `${weatherData?.name}, ${weatherData?.sys?.country}`
+            ? weatherData.name
+              ? `${weatherData?.name}, ${weatherData?.sys?.country}`
+              : "location not found"
             : "Search for a location...."}
         </div>
 
