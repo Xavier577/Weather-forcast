@@ -4,7 +4,6 @@
   "main": "index.js",
   "scripts": {
     "start": "node ./server/dist/index.js",
-    "build": "tsc",
     "dev": "nodemon --exec ts-node ./server/src/index.ts --mode development"
   },
   "repository": "https://github.com/Xavier577/Weather-forcast.git",
