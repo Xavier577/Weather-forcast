@@ -18,7 +18,6 @@ const App = () => {
     formFields.location,
     [formFields.location]
   );
-  console.log(searchQueryData);
   const searchBarSubmitFn = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (fetchError) {
